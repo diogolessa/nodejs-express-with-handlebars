@@ -6,7 +6,17 @@ const PORT = 3000;
 const app = express();
 app.engine('.hbs', expressHbs({
     defaultLayout: 'main',
-    extname: '.hbs'    
+    extname: '.hbs',
+    helpers: {
+        list: function(list) {
+            const itemList = list.map(item => `<li>${item}</li>`).join('');
+            return (`
+                <ul>
+                    ${itemList}
+                </ul>
+            `)
+        }
+    }
 }));
 app.set('view engine', '.hbs');
 
@@ -35,6 +45,12 @@ app.get('/profile', (req, res) => {
         },{
             value: '(19) 3333-3333',
         }]
+    });
+});
+
+app.get('/users', (req, res) => {
+    res.render('users', {
+        userList: ['firstuser', 'seconduser']
     });
 });
 
