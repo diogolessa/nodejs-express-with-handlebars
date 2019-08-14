@@ -28,6 +28,16 @@ app.get('/contact', (req, res) => {
     });
 });
 
+app.get('/profile', (req, res) => {
+    res.render('profile', {
+        phoneNumber: [{
+            value: '(19) 2222-2222',
+        },{
+            value: '(19) 3333-3333',
+        }]
+    });
+});
+
 app.listen(PORT, function() {
     console.log('listening on port ', PORT);
 });
