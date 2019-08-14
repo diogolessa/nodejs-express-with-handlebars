@@ -1,0 +1,13 @@
+<h3>Contact page</h3>
+
+<form action="">
+    {{#each fields }}
+        <div class="form-group">
+            <label for="{{id}}">{{name}}</label>
+            <input type="text" id="{{id}}" placeholder="{{placeholder}}">
+        </div>
+    {{/each }}
+    <div class="form-group">
+        <button>Save</button>
+    </div>
+</form>
